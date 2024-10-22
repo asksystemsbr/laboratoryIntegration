@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiIntegracaoEntity")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+212ee0bc4f258afd9a98e608d6fcb0daba25cc11")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiIntegracaoEntity")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiIntegracaoEntity")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

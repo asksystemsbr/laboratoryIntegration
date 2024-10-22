@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Registro">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Protocolo"
+                            type="xs:short">
+                    <xs:annotation>
+                        <xs:documentation>Versão da especificação do XML, atualmente 2.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                <xs:element name="ID">
+                    <xs:annotation>
+                        <xs:documentation>Identificador único para cada mensagem (devolvido no XML de retorno).</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:minLength value="1" />
+                            <xs:maxLength value="50" />
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:element>
+                <xs:element name="Lote">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="CodLab"
+                                        type="xs:string">
+                                <xs:annotation>
+                                    <xs:documentation>Código do cliente (conveniado).</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="CodLoteLab">
+                                <xs:annotation>
+                                    <xs:documentation>Código do lote no cliente.</xs:documentation>
+                                </xs:annotation>
+                                <xs:simpleType>
+                                    <xs:restriction base="xs:string">
+                                        <xs:pattern value="[^ ]{1,50}" />
+                                    </xs:restriction>
+                                </xs:simpleType>
+                            </xs:element>
+                            <xs:element name="Contrato"
+                                        type="xs:int"
+                                        minOccurs="0">
+                                <xs:annotation>
+                                    <xs:documentation>Código do contrato de licitação. Usado apenas nos casos que tratam solicitações oriundas de um contrato de licitação.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="DataLote"
+                                        type="xs:date">
+                                <xs:annotation>
+                                    <xs:documentation>Data de criação do lote no cliente.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="HoraLote"
+                                        type="xs:time">
+                                <xs:annotation>
+                                    <xs:documentation>Hora de criação do lote no cliente.</xs:documentation>
+                                </xs:annotation>
+                            </xs:element>
+                            <xs:element name="Pedido"
+                                        maxOccurs="unbounded">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="CodPedLab">
+                                            <xs:annotation>
+                                                <xs:documentation>Código do pedido no cliente.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:pattern value="[^ ]{1,15}" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="DataPed"
+                                                    type="xs:date"
+                                                    minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Data da criação do pedido no cliente.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="HoraPed"
+                                                    type="xs:time"
+                                                    minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Hora da criação do pedido no cliente.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="DataUltMens"
+                                                    type="xs:date"
+                                                    minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Data da última menstruação do paciente, quando aplicável.</xs:documentation>
+                                            </xs:annotation>
+                                        </xs:element>
+                                        <xs:element name="Obs"
+                                                    minOccurs="0">
+                                            <xs:annotation>
+                                                <xs:documentation>Observações gerais sobre o pedido ou paciente.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:simpleType>
+                                                <xs:restriction base="xs:string">
+                                                    <xs:maxLength value="70" />
+                                                </xs:restriction>
+                                            </xs:simpleType>
+                                        </xs:element>
+                                        <xs:element name="Paciente">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element name="CodPacLab">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Código do paciente no cliente (conveniado).</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1" />
+                                                                <xs:maxLength value="15" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Nome">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Nome do paciente.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="35" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Sexo">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Sexo (gênero) do paciente (Masculino, Feminino ou Indefinido).</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:pattern value="Masculino" />
+                                                                <xs:pattern value="Feminino" />
+                                                                <xs:pattern value="Indefinido" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:choice>
+                                                        <xs:element name="DataNasc"
+                                                                    type="xs:date">
+                                                            <xs:annotation>
+                                                                <xs:documentation>Data de nascimento.</xs:documentation>
+                                                            </xs:annotation>
+                                                        </xs:element>
+                                                        <xs:element name="IdadeAno"
+                                                                    type="xs:int">
+                                                            <xs:annotation>
+                                                                <xs:documentation>Idade em anos.</xs:documentation>
+                                                            </xs:annotation>
+                                                        </xs:element>
+                                                        <xs:element name="IdadeMes"
+                                                                    type="xs:int">
+                                                            <xs:annotation>
+                                                                <xs:documentation>Idade em meses.</xs:documentation>
+                                                            </xs:annotation>
+                                                        </xs:element>
+                                                        <xs:element name="IdadeDia"
+                                                                    type="xs:int">
+                                                            <xs:annotation>
+                                                                <xs:documentation>Idade em dias.</xs:documentation>
+                                                            </xs:annotation>
+                                                        </xs:element>
+                                                    </xs:choice>
+                                                    <xs:element name="CPF"
+                                                               minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>CPF do paciente, para configurar a criação do prontuário.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:whiteSpace value="preserve"/>
+                                                                <xs:pattern value="[0-9]{11}"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                  </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Medico"
+                                                    minOccurs="0"                               
+                                                    maxOccurs="unbounded">
+                                            <xs:annotation>
+                                                <xs:documentation>Profissional de sáude solicitante. Obrigatório apenas nos casos de empresas do grupo Pardini.</xs:documentation>
+                                            </xs:annotation>
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:element minOccurs="0" name="siglaConselho">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Sigla do conselho profissional.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="CRAS"/>
+                                                                <xs:enumeration value="COREN"/>
+                                                                <xs:enumeration value="CRF"/>
+                                                                <xs:enumeration value="CREFITO"/>
+                                                                <xs:enumeration value="CRM"/>
+                                                                <xs:enumeration value="CRN"/>
+                                                                <xs:enumeration value="CRO"/>
+                                                                <xs:enumeration value="CRP"/>
+                                                                <xs:enumeration value="OUT"/>
+                                                                <xs:enumeration value="CRFA"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element minOccurs="0" name="ufConselho">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Unidade federativa do conselho profissional.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:enumeration value="RS"/>
+                                                                <xs:enumeration value="SC"/>
+                                                                <xs:enumeration value="PR"/>
+                                                                <xs:enumeration value="SP"/>
+                                                                <xs:enumeration value="MG"/>
+                                                                <xs:enumeration value="RJ"/>
+                                                                <xs:enumeration value="ES"/>
+                                                                <xs:enumeration value="MS"/>
+                                                                <xs:enumeration value="MT"/>
+                                                                <xs:enumeration value="GO"/>
+                                                                <xs:enumeration value="TO"/>
+                                                                <xs:enumeration value="PA"/>
+                                                                <xs:enumeration value="AM"/>
+                                                                <xs:enumeration value="RO"/>
+                                                                <xs:enumeration value="RR"/>
+                                                                <xs:enumeration value="AC"/>
+                                                                <xs:enumeration value="DF"/>
+                                                                <xs:enumeration value="BA"/>
+                                                                <xs:enumeration value="SE"/>
+                                                                <xs:enumeration value="CE"/>
+                                                                <xs:enumeration value="PI"/>
+                                                                <xs:enumeration value="PB"/>
+                                                                <xs:enumeration value="RN"/>
+                                                                <xs:enumeration value="AL"/>
+                                                                <xs:enumeration value="MA"/>
+                                                                <xs:enumeration value="PE"/>
+                                                                <xs:enumeration value="AP"/>
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element minOccurs="0" name="numeroConselho" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Registro do profissional em seu respectivo conselho.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="Nome" type="xs:string">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Nome do profissional.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="seqmed" type="xs:long">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Número sequencial do profissional para discriminar múltiplos profissionais no mesmo pedido.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                        <xs:element name="Exame"
+                                                    maxOccurs="unbounded">
+                                            <xs:complexType>
+                                                <xs:sequence>
+                                                    <xs:choice>
+                                                        <xs:element name="CodExmApoio">
+                                                            <xs:annotation>
+                                                                <xs:documentation>Código do exame no Hermes Pardini + sequencial (1 a 99) para discriminar múltiplas ocorrências.</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                    <xs:pattern value="[A-Z0-9\-/+. ]{1,5}\|[A-Z0-9\-/+. ]{1,6}\|[1-9]\d{0,1}" />
+                                                                </xs:restriction>
+                                                            </xs:simpleType>
+                                                        </xs:element>
+                                                        <xs:element name="CodExmTUSS">
+                                                            <xs:annotation>
+                                                                <xs:documentation>Código do exame na tabela TUSS + sequencial (1 a 99) para discriminar múltiplas ocorrências.</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                    <xs:pattern value="\d{8,10}\|[1-9]\d{0,1}" />
+                                                                </xs:restriction>
+                                                            </xs:simpleType>
+                                                        </xs:element>
+                                                        <xs:element name="CodExmCBHPM">
+                                                            <xs:annotation>
+                                                                <xs:documentation>Código do exame na tabela CBHPM + sequencial (1 a 99) para discriminar múltiplas ocorrências.</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                    <xs:pattern value="\d{8,10}\|[1-9]\d{0,1}" />
+                                                                </xs:restriction>
+                                                            </xs:simpleType>
+                                                        </xs:element>
+                                                        <xs:element name="CodExmAMB">
+                                                            <xs:annotation>
+                                                                <xs:documentation>Código do exame na tabela AMB + sequencial (1 a 99) para discriminar múltiplas ocorrências.</xs:documentation>
+                                                            </xs:annotation>
+                                                            <xs:simpleType>
+                                                                <xs:restriction base="xs:string">
+                                                                    <xs:pattern value="\d{8,10}\|[1-9]\d{0,1}" />
+                                                                </xs:restriction>
+                                                            </xs:simpleType>
+                                                        </xs:element>
+                                                    </xs:choice>
+                                                    <xs:element name="CodExmLab"
+                                                                minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Código do exame no cliente (conveniado). Retornado no XML de resultado, se informado.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:minLength value="1" />
+                                                                <xs:maxLength value="15" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="DescMat"
+                                                                minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Descrição do material biológico. </xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="40" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Tempo"
+                                                                type="xs:short"
+                                                                minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Tempo em minutos decorrido desde um evento qualquer discrimando no campo Condicao, até o instante da coleta do material biológico.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="Condicao"
+                                                                minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Condição da coleta do exame (ex. Administração de cortisona).</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="80" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="DataColeta"
+                                                                type="xs:date">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Data da coleta do material biológico.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="HoraColeta"
+                                                                type="xs:time">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Hora da coleta do material biológico.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="Observacao"
+                                                                minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Observações específicas sobre o exame.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:simpleType>
+                                                            <xs:restriction base="xs:string">
+                                                                <xs:maxLength value="56" />
+                                                            </xs:restriction>
+                                                        </xs:simpleType>
+                                                    </xs:element>
+                                                    <xs:element name="Dosagem"
+                                                                type="xs:float"
+                                                                minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Dosagem de droga ministrada ao paciente para realização do exame.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="Conservante"
+                                                                type="xs:string"
+                                                                minOccurs="0">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Conservante ou anticoagulante usado na conservação do material biológico.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                    <xs:element name="InformacaoComplementar"
+                                                                minOccurs="0"
+                                                                maxOccurs="unbounded">
+                                                        <xs:annotation>
+                                                            <xs:documentation xml:lang="PT">Informação complementar do exame. Deve ser enviada sempre que o exame exigir.</xs:documentation>
+                                                        </xs:annotation>
+                                                        <xs:complexType>
+                                                            <xs:sequence>
+                                                                <xs:element name="InfoComp"
+                                                                            type="xs:string"
+                                                                            minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Nome da informação complementar requerida, conforme especificada no arquivo tabexalhp[Vn].xml.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                                <xs:element name="Valor"
+                                                                            type="xs:string"
+                                                                            minOccurs="0">
+                                                                    <xs:annotation>
+                                                                        <xs:documentation>Valor da informação complementar. Usar "."(ponto) como separador decimal, quando necessário.</xs:documentation>
+                                                                    </xs:annotation>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="idMedicoSolicitante"
+                                                                minOccurs="0"
+                                                                maxOccurs="unbounded"
+                                                                type="xs:long">
+                                                        <xs:annotation>
+                                                            <xs:documentation>Número sequencial do profissional conforme indicado pela tag seqmed do elemento Medico, para discriminar múltiplos profissionais associados ao mesmo exame.</xs:documentation>
+                                                        </xs:annotation>
+                                                    </xs:element>
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
