@@ -1,0 +1,146 @@
+[
+  {
+    "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
+    "Method": "PostAsync",
+    "RelativePath": "api/IntegracaoDB/consulta-status-atendimento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosRequestConsultaAtendimentoStatusDBViewModel",
+        "Type": "ApiIntegracaoEntity.DiagnosticosBrasil.DadosRequestConsultaAtendimentoStatusDBViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
+    "Method": "PostAsync",
+    "RelativePath": "api/IntegracaoDB/envia-amostras-procedimentos-pendentes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosRequestEnviaAmostrasProcedimentosPendentes",
+        "Type": "ApiIntegracaoEntity.DiagnosticosBrasil.DadosRequestEnviaAmostrasProcedimentosPendentesDBViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
+    "Method": "PostAsync",
+    "RelativePath": "api/IntegracaoDB/envia-laudo-atendimento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosRequestEnviaLaudoAtendimentoViewModel",
+        "Type": "ApiIntegracaoEntity.DiagnosticosBrasil.DadosRequestEnviaLaudoAtendimentoDBViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
+    "Method": "PostAsync",
+    "RelativePath": "api/IntegracaoDB/envia-lote-resultados",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loteResultado",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
+    "Method": "PostAsync",
+    "RelativePath": "api/IntegracaoDB/lista-procedimentos-pendentes",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosRequestListaProcedimentosPendentesDBViewModel",
+        "Type": "ApiIntegracaoEntity.DiagnosticosBrasil.DadosRequestListaProcedimentosPendentesDBViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
+    "Method": "PostAsync",
+    "RelativePath": "api/IntegracaoDB/recebe-pedido",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosRequesteRecebeAtendimentoDB",
+        "Type": "ApiIntegracaoEntity.DiagnosticosBrasil.DadosRequestRecebeAtendimentoDBViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
+    "Method": "PostAsync",
+    "RelativePath": "api/IntegracaoDB/reimprimir-etiquetas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosRequestEnviaAmostrasAtendimentoViewModel",
+        "Type": "ApiIntegracaoEntity.DiagnosticosBrasil.DadosRequestEnviaAmostrasAtendimentoViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
+    "Method": "PostAsync",
+    "RelativePath": "api/IntegracaoDB/relatorio-requisicoes-enviadas",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dadosRequestRelatorioRequisicoesEnviadasDBViewModel",
+        "Type": "ApiIntegracaoEntity.DiagnosticosBrasil.DadosRequestRelatorioRequisicoesEnviadasDBViewModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "ApiIntegracao.Controllers.IntegracaoLabPardiniController",
+    "Method": "GetPedido",
+    "RelativePath": "api/IntegracaoPardini/get-pedido",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  }
+]

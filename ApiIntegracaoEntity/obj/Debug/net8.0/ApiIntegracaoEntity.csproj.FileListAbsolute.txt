@@ -1,0 +1,12 @@
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\bin\Debug\net8.0\ApiIntegracaoEntity.deps.json
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\bin\Debug\net8.0\ApiIntegracaoEntity.dll
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\bin\Debug\net8.0\ApiIntegracaoEntity.pdb
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.AssemblyInfoInputs.cache
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.AssemblyInfo.cs
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.csproj.CoreCompileInputs.cache
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.dll
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\refint\ApiIntegracaoEntity.dll
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.pdb
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ref\ApiIntegracaoEntity.dll
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.csproj.AssemblyReference.cache
