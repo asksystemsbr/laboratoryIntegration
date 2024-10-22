@@ -37,6 +37,17 @@ namespace ApiIntegracaoLab.Controllers
 
                 var dadosRespostaRecebeAtendimento = _mapper.Map<DadosRespostaRecebeAtendimentoDBViewModel>(retorno);
 
+                try
+                {
+                    Log log = new Log(dadosRespostaRecebeAtendimento);
+                    log.partitionKey = "recebe-pedido";
+                    await _cosmosDbService.AddDocumentAsync(log, log.partitionKey);
+                }
+                catch
+                {
+                    ;
+                }
+
                 return Ok(dadosRespostaRecebeAtendimento);
             }
             catch (Exception ex) {
