@@ -135,3 +135,4 @@ C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracao\bin\Debug\net8.0\runtime
 C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracao\bin\Debug\net8.0\runtimes\win-x64\native\msvcp140.dll
 C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracao\bin\Debug\net8.0\runtimes\win-x64\native\vcruntime140.dll
 C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracao\bin\Debug\net8.0\runtimes\win-x64\native\vcruntime140_1.dll
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracao\obj\Debug\net8.0\ApiIntegracaoLab.sourcelink.json

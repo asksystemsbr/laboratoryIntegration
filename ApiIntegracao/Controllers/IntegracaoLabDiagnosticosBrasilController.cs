@@ -105,6 +105,17 @@ namespace ApiIntegracaoLab.Controllers
 
                 var dadosRespostaEnviaLaudoAtendimento = _mapper.Map<DadosRespostaLoteResultadosDBViewModel>(retorno);
 
+                try
+                {
+                    Log log = new Log(dadosRespostaEnviaLaudoAtendimento);
+                    log.partitionKey = "envia-lote-resultados";
+                    await _cosmosDbService.AddDocumentAsync(log, log.partitionKey);
+                }
+                catch
+                {
+                    ;
+                }
+
                 return Ok(dadosRespostaEnviaLaudoAtendimento);
             }
             catch (Exception ex)
@@ -128,6 +139,17 @@ namespace ApiIntegracaoLab.Controllers
                 var retorno = await service.EnviaAmostrasAsync(dadosRequest);
 
                 var dadosRespostaEnviaLaudoAtendimento = _mapper.Map<DadosRespostaEnviaAmostrasAtendimentoDBViewModel>(retorno);
+
+                try
+                {
+                    Log log = new Log(dadosRespostaEnviaLaudoAtendimento);
+                    log.partitionKey = "reimprimir-etiquetas";
+                    await _cosmosDbService.AddDocumentAsync(log, log.partitionKey);
+                }
+                catch
+                {
+                    ;
+                }
 
                 return Ok(dadosRespostaEnviaLaudoAtendimento);
             }
@@ -153,6 +175,17 @@ namespace ApiIntegracaoLab.Controllers
 
                 var dadosRespostaEnviaLaudoAtendimento = _mapper.Map<DadosRespostaConsultaAtendimentoStatusDBViewModel>(retorno);
 
+                try
+                {
+                    Log log = new Log(dadosRespostaEnviaLaudoAtendimento);
+                    log.partitionKey = "consulta-status-atendimento";
+                    await _cosmosDbService.AddDocumentAsync(log, log.partitionKey);
+                }
+                catch
+                {
+                    ;
+                }
+
                 return Ok(dadosRespostaEnviaLaudoAtendimento);
             }
             catch (Exception ex)
@@ -177,6 +210,17 @@ namespace ApiIntegracaoLab.Controllers
 
                 var dadosRespostaEnviaLaudoAtendimento = _mapper.Map<DadosRespostaListaProcedimentosPendentesDBViewModel>(retorno);
 
+                try
+                {
+                    Log log = new Log(dadosRespostaEnviaLaudoAtendimento);
+                    log.partitionKey = "lista-procedimentos-pendentes";
+                    await _cosmosDbService.AddDocumentAsync(log, log.partitionKey);
+                }
+                catch
+                {
+                    ;
+                }
+
                 return Ok(dadosRespostaEnviaLaudoAtendimento);
             }
             catch (Exception ex)
@@ -200,6 +244,17 @@ namespace ApiIntegracaoLab.Controllers
                 var retorno = await service.EnviaAmostrasProcedimentosPendentesAsync(dadosRequest);
 
                 var dadosRespostaEnviaLaudoAtendimento = _mapper.Map<DadosRespostaEnviaAmostrasProcedimentosPendentesDBViewModel>(retorno);
+
+                try
+                {
+                    Log log = new Log(dadosRespostaEnviaLaudoAtendimento);
+                    log.partitionKey = "envia-amostras-procedimentos-pendentes";
+                    await _cosmosDbService.AddDocumentAsync(log, log.partitionKey);
+                }
+                catch
+                {
+                    ;
+                }
 
                 return Ok(dadosRespostaEnviaLaudoAtendimento);
             }
