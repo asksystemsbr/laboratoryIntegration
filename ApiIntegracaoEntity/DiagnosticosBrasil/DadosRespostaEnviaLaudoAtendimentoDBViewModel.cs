@@ -28,7 +28,7 @@ namespace ApiIntegracaoEntity.DiagnosticosBrasil
 
         private System.DateTime dataNascimentoField;
 
-        private ResultadoProcedimentos[] listaResultadoProcedimentosField;
+        private ResultadoProcedimentosV2[] listaResultadoProcedimentosField;
 
         private string usoApoiadoField;
 
@@ -158,7 +158,7 @@ namespace ApiIntegracaoEntity.DiagnosticosBrasil
             }
         }
 
-        public ResultadoProcedimentos[] ListaResultadoProcedimentos
+        public ResultadoProcedimentosV2[] ListaResultadoProcedimentos
         {
             get
             {

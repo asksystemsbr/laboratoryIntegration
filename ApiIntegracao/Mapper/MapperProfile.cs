@@ -42,6 +42,7 @@ namespace ApiIntegracaoLab.Mapper
             CreateMap<ResultadoV2, ct_Resultado_v2>().ReverseMap();
             CreateMap<ResultadoProcedimentosV1, ct_ResultadoProcedimentos_v1>().ReverseMap();
             CreateMap<ResultadoProcedimentosV2, ct_ResultadoProcedimentos_v2>().ReverseMap();
+            CreateMap<ResultadoProcedimentos, ct_ResultadoProcedimentos_v2>().ReverseMap();
             CreateMap<ResultadoTextoV1, ct_ResultadoTexto_v1>().ReverseMap();
             CreateMap<ResultadoTextoV2, ct_ResultadoTexto_v2>().ReverseMap();
             CreateMap<ResultadoImagemV1, ct_ResultadoImagem_v1>().ReverseMap();
