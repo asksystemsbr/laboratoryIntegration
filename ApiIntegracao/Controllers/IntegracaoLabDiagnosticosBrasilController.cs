@@ -14,12 +14,14 @@ namespace ApiIntegracaoLab.Controllers
     public class IntegracaoLabDiagnosticosBrasilController : ControllerBase
     {
         private readonly CosmosDbService _cosmosDbService;
+        private readonly LabDbConfig _labDbConfig;
         private readonly IMapper _mapper;
 
-        public IntegracaoLabDiagnosticosBrasilController(IMapper mapper, CosmosDbService cosmosDbService)
+        public IntegracaoLabDiagnosticosBrasilController(IMapper mapper, CosmosDbService cosmosDbService,IOptions<LabDbConfig> labDbConfig)
         {
                 _mapper = mapper;
                 _cosmosDbService = cosmosDbService;
+                _labDbConfig = labDbConfig.Value;
         }
 
         [HttpPost("recebe-pedido")]
@@ -31,8 +33,8 @@ namespace ApiIntegracaoLab.Controllers
 
             try
             {
-                dadosRequest.CodigoSenhaIntegracao = "malore62";
-                dadosRequest.CodigoApoiado = "12588";
+                dadosRequest.CodigoSenhaIntegracao = _labDbConfig.CodigoSenhaIntegracao;
+                dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
                 var retorno = await service.RecebeAtendimentoAsync(dadosRequest);
 
                 var dadosRespostaRecebeAtendimento = _mapper.Map<DadosRespostaRecebeAtendimentoDBViewModel>(retorno);
@@ -58,6 +60,7 @@ namespace ApiIntegracaoLab.Controllers
         }
 
         [HttpPost("envia-laudo-atendimento")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> PostAsync(DadosRequestEnviaLaudoAtendimentoDBViewModel dadosRequestEnviaLaudoAtendimentoViewModel)
         {
             using var service = new DiagnosticoBrasilService.wsrvProtocoloDBSyncClient();
@@ -65,12 +68,12 @@ namespace ApiIntegracaoLab.Controllers
 
             try
             {
-                dadosRequest.CodigoSenhaIntegracao = "malore62";
-                dadosRequest.CodigoApoiado = "12588";
+                dadosRequest.CodigoSenhaIntegracao = _labDbConfig.CodigoSenhaIntegracao;
+                dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
                 var retorno = await service.EnviaLaudoAtendimentoAsync(dadosRequest);
 
                 var dadosRespostaEnviaLaudoAtendimento = _mapper.Map<List<DadosRespostaEnviaLaudoAtendimentoDBViewModel>>(retorno);
-
+                
                 try
                 {
                     Log log = new Log(dadosRespostaEnviaLaudoAtendimento);
@@ -91,6 +94,7 @@ namespace ApiIntegracaoLab.Controllers
         }
 
         [HttpPost("envia-lote-resultados")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> PostAsync(string loteResultado = "")
         {
             using var service = new DiagnosticoBrasilService.wsrvProtocoloDBSyncClient();
@@ -98,8 +102,8 @@ namespace ApiIntegracaoLab.Controllers
 
             try
             {
-                dadosRequest.CodigoSenhaIntegracao = "malore62";
-                dadosRequest.CodigoApoiado = "12588";
+                dadosRequest.CodigoSenhaIntegracao = _labDbConfig.CodigoSenhaIntegracao;
+                dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
                 dadosRequest.LoteResultado = loteResultado;
                 var retorno = await service.EnviaLoteResultadosAsync(dadosRequest);
 
@@ -126,6 +130,7 @@ namespace ApiIntegracaoLab.Controllers
         }
 
         [HttpPost("reimprimir-etiquetas")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> PostAsync(DadosRequestEnviaAmostrasAtendimentoViewModel dadosRequestEnviaAmostrasAtendimentoViewModel)
         {
             using var service = new DiagnosticoBrasilService.wsrvProtocoloDBSyncClient();
@@ -133,8 +138,8 @@ namespace ApiIntegracaoLab.Controllers
 
             try
             {
-                dadosRequest.CodigoSenhaIntegracao = "malore62";
-                dadosRequest.CodigoApoiado = "12588";
+                dadosRequest.CodigoSenhaIntegracao = _labDbConfig.CodigoSenhaIntegracao;
+                dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
                
                 var retorno = await service.EnviaAmostrasAsync(dadosRequest);
 
@@ -161,6 +166,7 @@ namespace ApiIntegracaoLab.Controllers
         }
 
         [HttpPost("consulta-status-atendimento")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> PostAsync(DadosRequestConsultaAtendimentoStatusDBViewModel dadosRequestConsultaAtendimentoStatusDBViewModel)
         {
             using var service = new DiagnosticoBrasilService.wsrvProtocoloDBSyncClient();
@@ -168,8 +174,8 @@ namespace ApiIntegracaoLab.Controllers
 
             try
             {
-                dadosRequest.CodigoSenhaIntegracao = "malore62";
-                dadosRequest.CodigoApoiado = "12588";
+                dadosRequest.CodigoSenhaIntegracao = _labDbConfig.CodigoSenhaIntegracao;
+                dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
 
                 var retorno = await service.ConsultaStatusAtendimentoAsync(dadosRequest);
 
@@ -196,6 +202,7 @@ namespace ApiIntegracaoLab.Controllers
         }
 
         [HttpPost("lista-procedimentos-pendentes")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> PostAsync(DadosRequestListaProcedimentosPendentesDBViewModel dadosRequestListaProcedimentosPendentesDBViewModel)
         {
             using var service = new DiagnosticoBrasilService.wsrvProtocoloDBSyncClient();
@@ -203,8 +210,8 @@ namespace ApiIntegracaoLab.Controllers
 
             try
             {
-                dadosRequest.CodigoSenhaIntegracao = "malore62";
-                dadosRequest.CodigoApoiado = "12588";
+                dadosRequest.CodigoSenhaIntegracao = _labDbConfig.CodigoSenhaIntegracao;
+                dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
 
                 var retorno = await service.ListaProcedimentosPendentesAsync(dadosRequest);
 
@@ -231,6 +238,7 @@ namespace ApiIntegracaoLab.Controllers
         }
 
         [HttpPost("envia-amostras-procedimentos-pendentes")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> PostAsync(DadosRequestEnviaAmostrasProcedimentosPendentesDBViewModel dadosRequestEnviaAmostrasProcedimentosPendentes)
         {
             using var service = new DiagnosticoBrasilService.wsrvProtocoloDBSyncClient();
@@ -238,8 +246,8 @@ namespace ApiIntegracaoLab.Controllers
 
             try
             {
-                dadosRequest.CodigoSenhaIntegracao = "malore62";
-                dadosRequest.CodigoApoiado = "12588";
+                dadosRequest.CodigoSenhaIntegracao = _labDbConfig.CodigoSenhaIntegracao;
+                dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
 
                 var retorno = await service.EnviaAmostrasProcedimentosPendentesAsync(dadosRequest);
 
@@ -266,6 +274,7 @@ namespace ApiIntegracaoLab.Controllers
         }
 
         [HttpPost("relatorio-requisicoes-enviadas")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<IActionResult> PostAsync(DadosRequestRelatorioRequisicoesEnviadasDBViewModel dadosRequestRelatorioRequisicoesEnviadasDBViewModel)
         {
             using var service = new DiagnosticoBrasilService.wsrvProtocoloDBSyncClient();
@@ -273,8 +282,8 @@ namespace ApiIntegracaoLab.Controllers
 
             try
             {
-                dadosRequest.CodigoSenhaIntegracao = "malore62";
-                dadosRequest.CodigoApoiado = "12588";
+                dadosRequest.CodigoSenhaIntegracao = _labDbConfig.CodigoSenhaIntegracao;
+                dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
 
                 var retorno = await service.RelatorioRequisicoesEnviadasAsync(dadosRequest);
 

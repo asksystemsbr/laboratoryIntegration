@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiIntegracaoLab")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8f74f553615abdbd9b78e2e21a7c4be82c78611d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+86cb6001d3e2c9eb15663c71ed232a36b1f80d23")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiIntegracaoLab")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiIntegracaoLab")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

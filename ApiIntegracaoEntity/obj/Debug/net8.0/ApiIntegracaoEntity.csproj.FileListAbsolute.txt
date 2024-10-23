@@ -10,3 +10,4 @@ C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\r
 C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.pdb
 C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ref\ApiIntegracaoEntity.dll
 C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.csproj.AssemblyReference.cache
+C:\Users\teiao\source\repos\ApiIntegracao\ApiIntegracaoEntity\obj\Debug\net8.0\ApiIntegracaoEntity.sourcelink.json

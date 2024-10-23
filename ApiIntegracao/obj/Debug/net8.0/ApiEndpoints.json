@@ -13,7 +13,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
@@ -29,7 +35,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
@@ -45,7 +57,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
@@ -61,7 +79,13 @@
         "IsRequired": false
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
@@ -77,7 +101,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
@@ -115,7 +145,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ApiIntegracaoLab.Controllers.IntegracaoLabDiagnosticosBrasilController",
@@ -131,7 +167,13 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "System.Void",
+        "MediaTypes": [],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "ApiIntegracao.Controllers.IntegracaoLabPardiniController",

@@ -19,6 +19,7 @@ namespace ApiIntegracao
             builder.Services.AddAutoMapper(typeof(MapperProfile));
             
             builder.Services.Configure<CosmosConfig>(builder.Configuration.GetSection("CosmosConfig"));
+            builder.Services.Configure<LabDbConfig>(builder.Configuration.GetSection("LabDBConfig"));
 
             builder.Services.AddSingleton<CosmosDbService>(options =>
             {
