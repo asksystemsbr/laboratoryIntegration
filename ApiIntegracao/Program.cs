@@ -20,6 +20,7 @@ namespace ApiIntegracao
             
             builder.Services.Configure<CosmosConfig>(builder.Configuration.GetSection("CosmosConfig"));
             builder.Services.Configure<LabDbConfig>(builder.Configuration.GetSection("LabDBConfig"));
+            builder.Services.Configure<LabOcrImageConfig>(builder.Configuration.GetSection("ImageOcrConfig"));
 
             builder.Services.AddSingleton<CosmosDbService>(options =>
             {

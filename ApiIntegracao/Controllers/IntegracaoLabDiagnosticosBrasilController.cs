@@ -72,6 +72,7 @@ namespace ApiIntegracaoLab.Controllers
                 dadosRequest.CodigoApoiado = _labDbConfig.CodigoApoiado;
                 var retorno = await service.EnviaLaudoAtendimentoAsync(dadosRequest);
 
+
                 var dadosRespostaEnviaLaudoAtendimento = _mapper.Map<List<DadosRespostaEnviaLaudoAtendimentoDBViewModel>>(retorno.ToList());
                 
                 try
